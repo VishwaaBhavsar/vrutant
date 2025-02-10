@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garage Finder Near Me - India</title>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Garage Finder Near Me (India)</h1>
+  <div>
+    <input type="text" id="location" placeholder="Enter your city or area">
+    <button onclick="findGarages()">Find Garages</button>
+  </div>
+  <div id="results"></div>
+  <div id="map"></div>
+
+  <script src="filter.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsZ-304VCiHqXygu3wXIO9-YEqJHxTpoo&callback=initMap&libraries=places"></script>
+</body>
+</html>

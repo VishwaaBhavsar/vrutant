@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="primeApp">
+<head>
+  <title>Prime Number Filter</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body ng-controller="PrimeController">
+  
+  <h2>Check If a Number is Prime</h2>
+  
+  <label for="numberInput">Enter a number:</label>
+  <input type="number" id="numberInput" ng-model="number" />
+  
+  <h3>Result: {{ number | primeFilter }}</h3>
+
+  <script>
+    // Define the AngularJS app
+    var app = angular.module('primeApp', []);
+
+    // Create the custom filter to check prime number
+    app.filter('primeFilter', function() {
+      return function(input) {
+        if (isNaN(input) || input <= 1) {
+          return false; // Not prime
+        }
+        
+        // Check if the number is prime
+        for (var i = 2, sqrt = Math.sqrt(input); i <= sqrt; i++) {
+          if (input % i === 0) {
+            return false; // Not prime
+          }
+        }
+        
+        return true; // Prime
+      };
+    });
+
+    // Controller to handle the number input
+    app.controller('PrimeController', function($scope) {
+      $scope.number = null;
+    });
+  </script>
+
+</body>
+</html>
